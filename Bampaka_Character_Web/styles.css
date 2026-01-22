@@ -136,3 +136,42 @@ footer {
     transform: translateY(0);
     transition: all 0.8s ease;
 }
+
+/* ================= LOADING OVERLAY ================= */
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.95));
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+.loading-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.loader { width: 320px; text-align: center; color: #e6ffff }
+.bar { width: 100%; height: 14px; background: rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 4px 18px rgba(0,255,255,0.06) inset; }
+.progress { height: 100%; width: 0%; background: linear-gradient(90deg,#00f5ff,#7cffb2); border-radius: 12px; transition: width 0.2s linear; box-shadow: 0 6px 20px rgba(0,255,255,0.12); }
+.loading-dots { font-size: 1.05rem; letter-spacing: 1px; animation: dots 1s steps(4, end) infinite; }
+@keyframes dots { 0% { content: 'Cargando'; } 25% { content: 'Cargando.' } 50% { content: 'Cargando..' } 75% { content: 'Cargando...' } }
+
+/* ================= CONFIG SLIDERS (estilos chulos) ================= */
+input[type="range"].slider { -webkit-appearance: none; appearance: none; width: 100%; height: 12px; background: transparent; }
+input[type="range"].slider:focus { outline: none; }
+input[type="range"].slider::-webkit-slider-runnable-track { height: 12px; background: linear-gradient(90deg,#222,#111); border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.02); }
+input[type="range"].slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fff, #cbe); box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 18px rgba(0,255,255,0.08); margin-top: -5px; transition: transform 0.18s ease; }
+input[type="range"].slider:active::-webkit-slider-thumb { transform: scale(1.08) rotate(-6deg); }
+input[type="range"].slider::-moz-range-track { height: 12px; background: linear-gradient(90deg,#222,#111); border-radius: 999px; }
+input[type="range"].slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #dff; border: none; }
+
+.config-container { max-width: 720px; margin: 6vh auto; padding: 36px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+.config-container h1 { text-align: center; margin-bottom: 24px; }
+.slider-container { margin: 18px 0; }
+.slider-container label { display:block; margin-bottom:8px; opacity:0.9 }
+.config-container button { margin-top: 18px; padding: 12px 18px; border-radius: 10px; border: none; background: #00f5ff; color: #000; cursor: pointer; }
+
