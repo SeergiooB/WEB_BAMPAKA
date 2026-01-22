@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Nombre del Videojuego</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- FUENTE -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
+    <!-- HERO / MENÚ INICIAL -->
+    <section class="hero">
+        <h1 class="game-title">NOMBRE DEL JUEGO</h1>
+        <button class="play-button">PLAY</button>
+        <span class="scroll-text">Scroll ↓</span>
+    </section>
+
+    <!-- HISTORIA -->
+    <section class="story hidden">
+        <h2>Historia</h2>
+        <p>
+            En un mundo al borde de la destrucción, cada decisión cuenta.
+            Explora un universo hostil lleno de secretos, enemigos y misterios.
+        </p>
+    </section>
+
+    <!-- DESARROLLADORES -->
+    <section class="developers hidden">
+        <h2>Desarrolladores</h2>
+        <div class="dev-list">
+            <div class="dev-card">Programador</div>
+            <div class="dev-card">Diseñador</div>
+            <div class="dev-card">Artista</div>
+        </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="gallery hidden">
+        <h2>Galería</h2>
+        <div class="gallery-grid">
+            <img src="https://via.placeholder.com/600x400">
+            <img src="https://via.placeholder.com/600x400">
+            <img src="https://via.placeholder.com/600x400">
+        </div>
+    </section>
+
+    <footer>
+        © 2026 - Nombre del Videojuego
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
