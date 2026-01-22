@@ -15,7 +15,7 @@
     <!-- HERO / MENÚ INICIAL -->
     <section class="hero">
         <h1 class="game-title">NOMBRE DEL JUEGO</h1>
-        <button class="play-button">PLAY</button>
+        <button class="play-button" id="playButton">PLAY</button>
         <span class="scroll-text">Scroll ↓</span>
     </section>
 
@@ -51,6 +51,16 @@
     <footer>
         © 2026 - Nombre del Videojuego
     </footer>
+
+    <!-- Loading overlay shown after clicking Play -->
+    <div id="loadingOverlay" class="loading-overlay" aria-hidden="true">
+        <div class="loader">
+            <div class="bar">
+                <div class="progress" id="loadingBar"></div>
+            </div>
+            <div class="loading-dots" id="loadingText">Cargando</div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
