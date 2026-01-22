@@ -21,20 +21,12 @@ section {
 .hero {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    background: radial-gradient(circle, #111, #000);
-}
-
-.game-title {
-    font-size: 4rem;
-    margin-bottom: 40px;
-    animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px #00ffff; }
-    to { text-shadow: 0 0 30px #00ffff; }
+    background-image: url('img/BANNER_ITCHIO.PNG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .play-button {
@@ -42,21 +34,23 @@ section {
     font-size: 1.5rem;
     border: none;
     border-radius: 50px;
-    background: #00ffff;
-    color: black;
+    background: #be1b74;
+    color: white;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 40px; /* keep spacing now that title is removed */
 }
 
 .play-button:hover {
     transform: scale(1.15);
-    box-shadow: 0 0 30px #00ffff;
+    box-shadow: 0 0 30px #be1b74;
 }
 
 .scroll-text {
     margin-top: 50px;
     opacity: 0.6;
     animation: bounce 1.5s infinite;
+    color: #e6ffff;
 }
 
 @keyframes bounce {
@@ -156,7 +150,7 @@ footer {
 }
 .loader { width: 320px; text-align: center; color: #e6ffff }
 .bar { width: 100%; height: 14px; background: rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 4px 18px rgba(0,255,255,0.06) inset; }
-.progress { height: 100%; width: 0%; background: linear-gradient(90deg,#00f5ff,#7cffb2); border-radius: 12px; transition: width 0.2s linear; box-shadow: 0 6px 20px rgba(0,255,255,0.12); }
+.progress { height: 100%; width: 0%; background: linear-gradient(90deg,#be1b74,#762a78); border-radius: 12px; transition: width 0.2s linear; box-shadow: 0 6px 20px rgba(190,27,116,0.12); }
 .loading-dots { font-size: 1.05rem; letter-spacing: 1px; animation: dots 1s steps(4, end) infinite; }
 @keyframes dots { 0% { content: 'Cargando'; } 25% { content: 'Cargando.' } 50% { content: 'Cargando..' } 75% { content: 'Cargando...' } }
 
