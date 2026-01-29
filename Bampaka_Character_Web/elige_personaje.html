@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/flickity@2/dist/flickity.min.css" rel="stylesheet">
+    <title>Elige tu personaje</title>
+</head>
+<body>
+    <main class="car-gallery-wrap">
+        <header class="car-gallery-header">
+            <h1>Elige tu personaje</h1>
+            <p>Arrastra o usa las flechas para navegar el carrusel. Haz clic en un personaje para seleccionarlo.</p>
+        </header>
+
+        <div class="char-carousel" role="region" aria-label="Carrusel de personajes">
+            <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+            <div class="char-track" role="list">
+                <div class="carousel-cell" data-file="img/PERSONAJE_NAGANO.PNG" data-name="Nagano" data-desc="Un piloto veterano con experiencia en carreras de alta velocidad." data-stats="Velocidad:9/10; Aceleración:8/10; Manejo:7/10; Poder:Alta">
+                    <img src="img/PERSONAJE_NAGANO.PNG" alt="Personaje Nagano">
+                    <div class="char-info">
+                        <h3>Nagano</h3>
+                    </div>
+                </div>
+
+                <div class="carousel-cell" data-file="img/PERSONAJE_OSAKA.PNG" data-name="Osaka" data-desc="Joven y técnico, destaca en maniobras precisas en curvas." data-stats="Velocidad:7/10; Aceleración:6/10; Manejo:9/10; Poder:Media">
+                    <img src="img/PERSONAJE_OSAKA.PNG" alt="Personaje Osaka">
+                    <div class="char-info">
+                        <h3>Osaka</h3>
+                    </div>
+                </div>
+
+                <div class="carousel-cell" data-file="img/PERSONAJE_EXTRA_OSAKA.PNG" data-name="Extra Osaka" data-desc="Personaje alternativo con habilidades únicas de control." data-stats="Velocidad:6/10; Aceleración:7/10; Manejo:8/10; Poder:Especial">
+                    <img src="img/PERSONAJE_EXTRA_OSAKA.PNG" alt="Personaje Extra Osaka">
+                    <div class="char-info">
+                        <h3>Extra Osaka</h3>
+                    </div>
+                </div>
+                
+                <div class="carousel-cell" data-file="img/PUTO_VIEJO.PNG" data-name="Puto Viejo" data-desc="Un personaje misterioso y con técnicas poco ortodoxas." data-stats="Velocidad:5/10; Aceleración:5/10; Manejo:6/10; Poder:Caótico">
+                    <img src="img/PUTO_VIEJO.PNG" alt="Puto Viejo">
+                    <div class="char-info">
+                        <h3>Puto Viejo</h3>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next" aria-label="Siguiente">›</button>
+        </div>
+
+        <!-- details card: appears when a character is selected (outside the carousel) -->
+        <div id="charDetails" class="char-details hidden" aria-live="polite">
+            <div class="char-card">
+                <div class="char-thumb"><img id="charThumb" src="" alt=""></div>
+                <div class="char-body">
+                    <h2 id="charName"></h2>
+                    <p id="charDesc"></p>
+                    <div id="charStats" class="char-stats"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="car-actions" style="margin-top:20px;">
+            <button id="confirmCharBtn" class="confirm-btn" disabled>Continuar</button>
+            <button id="backToCars" class="confirm-btn" style="background:#be1b74;color:#fff">Volver</button>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="script.js"></script>
+    <script src="elegir_personaje.js"></script>
+</body>
+</html>

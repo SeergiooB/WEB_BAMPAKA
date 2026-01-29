@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Flickity (carousel for top nav) -->
+    <link href="https://unpkg.com/flickity@2/dist/flickity.min.css" rel="stylesheet">
+    <title>Elige tu coche</title>
+</head>
+<body>
+    <main class="car-gallery-wrap">
+        <header class="car-gallery-header" style="margin-bottom:18px;">
+            <h1>Elige tu coche</h1>
+            <p>Desplázate para ver cada coche con su descripción. Usa la barra superior para navegar rápido.</p>
+        </header>
+
+        <!-- Top nav carousel to jump between car sections -->
+        <div class="car-nav" aria-hidden="false">
+            <div class="nav-cell"><img src="img/COCHE_NAGANO_GITANICO.PNG" alt="Nagano"/></div>
+            <div class="nav-cell"><img src="img/COCHE_NARA.PNG" alt="Nara"/></div>
+            <div class="nav-cell"><img src="img/COCHE_OSAKA.PNG" alt="Osaka"/></div>
+            <div class="nav-cell"><img src="img/COCHE_TOKYO.PNG" alt="Tokyo"/></div>
+        </div>
+
+        <!-- Sections: one per coche -->
+        <section class="car-section hidden" id="sect-nagano" data-file="img/COCHE_NAGANO_GITANICO.PNG">
+            <div class="car-inner">
+                <div class="car-img" data-aos="fade-right"><img src="img/COCHE_NAGANO_GITANICO.PNG" alt="Nagano Gitánico"></div>
+                <div class="car-desc" data-aos="fade-left">
+                    <h2>Nagano Gitánico</h2>
+                    <p>Velocidad alta y aceleración rápida. Ideal para rectas y adelantamientos. Manejo equilibrado.</p>
+                    <ul>
+                        <li>Velocidad: 9/10</li>
+                        <li>Aceleración: 8/10</li>
+                        <li>Manejo: 7/10</li>
+                        <li>Peso: Ligero</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="car-section hidden" id="sect-nara" data-file="img/COCHE_NARA.PNG">
+            <div class="car-inner">
+                <div class="car-img" data-aos="fade-left"><img src="img/COCHE_NARA.PNG" alt="Nara"></div>
+                <div class="car-desc" data-aos="fade-right">
+                    <h2>Nara</h2>
+                    <p>Manejo excelente en curvas y tracción superior. Perfecto para circuitos técnicos y maniobras cerradas.</p>
+                    <ul>
+                        <li>Velocidad: 7/10</li>
+                        <li>Aceleración: 6/10</li>
+                        <li>Manejo: 9/10</li>
+                        <li>Peso: Medio</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="car-section hidden" id="sect-osaka" data-file="img/COCHE_OSAKA.PNG">
+            <div class="car-inner">
+                <div class="car-img" data-aos="fade-right"><img src="img/COCHE_OSAKA.PNG" alt="Osaka"></div>
+                <div class="car-desc" data-aos="fade-left">
+                    <h2>Osaka</h2>
+                    <p>Balance perfecto entre velocidad y manejo, con buena respuesta en frenadas. Ideal para pilotos versátiles.</p>
+                    <ul>
+                        <li>Velocidad: 8/10</li>
+                        <li>Aceleración: 7/10</li>
+                        <li>Manejo: 8/10</li>
+                        <li>Peso: Medio</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="car-section hidden" id="sect-tokyo" data-file="img/COCHE_TOKYO.PNG">
+            <div class="car-inner">
+                <div class="car-img" data-aos="fade-left"><img src="img/COCHE_TOKYO.PNG" alt="Tokyo"></div>
+                <div class="car-desc" data-aos="fade-right">
+                    <h2>Tokyo</h2>
+                    <p>Máxima potencia y aceleración. Requiere mano firme pero recompensa con altas velocidades punta.</p>
+                    <ul>
+                        <li>Velocidad: 10/10</li>
+                        <li>Aceleración: 9/10</li>
+                        <li>Manejo: 6/10</li>
+                        <li>Peso: Pesado</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="car-actions hidden">
+            <button id="confirmBtn" class="confirm-btn" disabled>Continuar</button>
+            <button id="backToConfig" class="confirm-btn" style="background:#be1b74;color:#fff">Volver</button>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="elegir_coche.js"></script>
+</body>
+</html>

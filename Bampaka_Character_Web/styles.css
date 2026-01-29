@@ -169,3 +169,120 @@ input[type="range"].slider::-moz-range-thumb { width: 22px; height: 22px; border
 .slider-container label { display:block; margin-bottom:8px; opacity:0.9 }
 .config-container button { margin-top: 18px; padding: 12px 18px; border-radius: 10px; border: none; background: #00f5ff; color: #000; cursor: pointer; }
 
+
+/* Link-style button used in config.html to open the car selector */
+.config-link-button {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#be1b74,#762a78);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+.config-link-button:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(190,27,116,0.12); }
+
+/* CAR SELECTOR STYLES */
+.car-gallery-wrap { max-width: 1100px; margin: 6vh auto; padding: 28px; }
+.car-gallery-header { text-align: center; margin-bottom: 18px; }
+.gallery-grid.car-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
+.car-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding: 14px; border-radius: 12px; text-align: center; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, outline 0.15s ease; border: 2px solid transparent; }
+.car-card img { border-radius: 8px; max-height: 160px; object-fit: contain; }
+.car-card figcaption { margin-top: 12px; font-weight: 700; font-size: 0.95rem; }
+.car-card .select-btn { margin-top: 10px; padding: 8px 12px; border-radius: 8px; border: none; background: #00f5ff; color: #000; cursor: pointer; }
+.car-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
+.car-card.selected { outline: 4px solid #00f5ff; transform: scale(1.03); box-shadow: 0 18px 48px rgba(0,245,255,0.06); }
+
+.car-actions { display:flex; gap:12px; justify-content:center; margin-top:20px; }
+.car-actions .confirm-btn { padding: 12px 22px; border-radius: 12px; border: none; background: linear-gradient(90deg,#00f5ff,#00a1ff); color: #000; font-weight:700; cursor: pointer; }
+.car-actions .confirm-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+/* Styles for section-based car selector */
+.car-nav { margin: 18px 0 40px 0; }
+.car-nav .nav-cell { width: 120px; height: 66px; padding: 6px; box-sizing: border-box; }
+.car-nav .nav-cell img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; border: 2px solid rgba(255,255,255,0.04); }
+
+.car-nav .nav-cell.is-selected img { box-shadow: 0 8px 30px rgba(0,245,255,0.12); transform: scale(1.03); border-color: rgba(0,245,255,0.28); }
+
+.car-section { padding: 36px 0 !important; margin-bottom: 0; border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01)); min-height: auto !important; }
+.car-inner { display:flex; gap:28px; align-items:center; justify-content: center; flex-wrap:wrap; }
+.car-img { flex: 1 1 380px; text-align:center; }
+.car-img img { max-width: 420px; width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+.car-desc { flex: 1 1 380px; color: #e6ffff; }
+.car-desc h2 { font-size: 1.8rem; margin-bottom: 10px; }
+.car-desc p { margin-bottom: 12px; max-width: 560px; }
+.car-desc ul { list-style: none; padding-left: 0; margin-bottom: 12px; }
+.car-desc ul li { margin-bottom: 6px; }
+.car-section.selected { outline: 4px solid rgba(0,245,255,0.12); box-shadow: 0 22px 48px rgba(0,0,0,0.6); transform: translateY(-6px); }
+
+/* Highlight the description area when its section is selected */
+.car-desc.desc-highlight {
+    background: linear-gradient(90deg, rgba(0,245,255,0.03), rgba(255,255,255,0.01));
+    box-shadow: 0 16px 40px rgba(0,245,255,0.06);
+    border-radius: 8px;
+    padding: 12px;
+    transform: translateY(-4px);
+    transition: box-shadow 220ms ease, transform 220ms ease, background 220ms ease;
+}
+
+/* Alternate layout: for even sections, put image on the right and text on the left */
+.car-section:nth-of-type(even) .car-inner { flex-direction: row-reverse; }
+.car-section:nth-of-type(even) .car-desc { text-align: left; }
+
+@media (max-width: 880px) {
+    .car-inner { flex-direction: column-reverse; }
+    .car-img img { max-width: 320px; }
+}
+
+/* Character carousel styles */
+.char-carousel { max-width: 980px; margin: 36px auto; overflow: hidden; position: relative; }
+.char-track { display: flex; gap: 12px; align-items: stretch; scroll-behavior: smooth; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+.char-carousel .carousel-cell { flex: 0 0 100%; /* one cell visible at a time */
+    padding: 12px; box-sizing: border-box; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); border-radius: 12px; text-align: center; cursor: grab; transition: transform 240ms cubic-bezier(.2,.9,.2,1), box-shadow 240ms cubic-bezier(.2,.9,.2,1), opacity 240ms; position: relative; z-index: 1; opacity: 0.55; transform: scale(0.96); scroll-snap-align: center; }
+/* make images uniform and fully visible */
+.char-carousel .carousel-cell img { width: 100%; height: 320px; object-fit: contain; border-radius: 10px; background: rgba(0,0,0,0.04); }
+.char-carousel .carousel-cell .char-info { margin-top: 8px; color: #e6ffff; }
+.char-carousel .carousel-cell.is-selected { opacity: 1; transform: scale(1.06); z-index: 6; /* bring above neighbors */
+    box-shadow: 0 20px 60px rgba(0,200,255,0.12);
+    border-radius: 12px;
+}
+
+/* prev/next buttons */
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.45); color: #fff; border: none; width: 44px; height: 72px; font-size: 32px; line-height: 72px; border-radius: 8px; cursor: pointer; z-index: 12; }
+.carousel-btn.prev { left: 6px; }
+.carousel-btn.next { right: 6px; }
+
+/* ensure buttons less visible on small screens */
+@media (max-width: 720px) {
+    .char-carousel { max-width: 100%; padding: 0 12px; }
+    .char-carousel .carousel-cell { flex: 0 0 100%; }
+}
+
+/* hide native scrollbar but keep functionality */
+.char-track::-webkit-scrollbar { height: 8px; display: none; }
+.char-track { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* details panel */
+.char-details { max-width: 920px; margin: 18px auto 0 auto; padding: 18px; background: linear-gradient(180deg, rgba(5,5,10,0.6), rgba(10,10,16,0.55)); border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
+.char-card { display:flex; gap:18px; align-items:flex-start; }
+.char-thumb { flex: 0 0 180px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding: 10px; border-radius: 10px; display:flex; align-items:center; justify-content:center; }
+.char-thumb img { width: 160px; height: 160px; object-fit: contain; border-radius: 8px; }
+.char-body { flex: 1 1 auto; }
+.char-body h2 { margin: 0 0 8px 0; font-size: 1.6rem; }
+.char-body p { margin: 0 0 12px 0; opacity: 0.95; }
+.char-stats { display:flex; flex-direction:column; gap:10px; }
+.stat-row { display:flex; align-items:center; gap:12px; }
+.stat-label { width: 140px; font-weight:700; color:#dff; }
+.stat-bar { flex:1; height: 14px; background: rgba(255,255,255,0.04); border-radius: 999px; overflow:hidden; position:relative; }
+.stat-fill { position:absolute; left:0; top:0; bottom:0; width:0%; background: linear-gradient(90deg,#00f5ff,#0066ff); border-radius: 999px; transition: width 700ms cubic-bezier(.2,.9,.2,1); box-shadow: 0 6px 20px rgba(0,150,255,0.08) inset; }
+.stat-value { width:64px; text-align:right; font-weight:700; color:#e6ffff; }
+
+/* small screens: stack */
+@media (max-width: 720px) {
+    .char-card { flex-direction: column; align-items:center; text-align:center; }
+    .char-thumb { width: 220px; }
+    .stat-label { width: 120px; }
+}
+
+
+

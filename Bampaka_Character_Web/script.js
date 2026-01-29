@@ -13,7 +13,7 @@ document.querySelectorAll(".hidden").forEach(section => {
     observer.observe(section);
 });
 
-// BOTÓN PLAY (ejemplo)
+// BOTÓN PLAY (ejemplo) -- proteger si la página no contiene el botón
 const playButton = document.querySelector(".play-button");
 
 const loadingOverlay = document.getElementById('loadingOverlay');
@@ -21,6 +21,7 @@ const loadingBar = document.getElementById('loadingBar');
 const loadingText = document.getElementById('loadingText');
 
 function showLoadingAndRedirect() {
+    if (!loadingOverlay || !loadingBar || !loadingText || !playButton) return;
     // show overlay
     loadingOverlay.classList.add('show');
     loadingOverlay.setAttribute('aria-hidden', 'false');
@@ -46,6 +47,8 @@ function showLoadingAndRedirect() {
     }, tick);
 }
 
-playButton.addEventListener('click', () => {
-    showLoadingAndRedirect();
-});
+if (playButton) {
+    playButton.addEventListener('click', () => {
+        showLoadingAndRedirect();
+    });
+}
