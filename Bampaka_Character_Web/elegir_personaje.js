@@ -23,21 +23,22 @@ function selectCharacter(cell, scrollIntoView = true) {
         // use scrollIntoView to center the cell in the track
         cell.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
+    // update nav buttons after selecting
+    if (typeof updateNavButtons === 'function') updateNavButtons();
 }
 
 function showCharacterDetails(cell) {
     const details = document.getElementById('charDetails');
-    const nameEl = document.getElementById('charName');
     const descEl = document.getElementById('charDesc');
     const statsEl = document.getElementById('charStats');
     const thumbEl = document.getElementById('charThumb');
-    if (!details || !nameEl || !descEl || !statsEl) return;
+    if (!details || !descEl || !statsEl) return;
 
     const name = cell.getAttribute('data-name') || cell.querySelector('.char-info h3')?.textContent || 'Personaje';
     const desc = cell.getAttribute('data-desc') || '';
     const statsAttr = cell.getAttribute('data-stats') || '';
 
-    nameEl.textContent = name;
+    // the name is already visible in the carousel; only set the description here
     descEl.textContent = desc;
     statsEl.innerHTML = '';
     if (thumbEl) {
@@ -128,13 +129,45 @@ if (track) {
                     selectCharacter(best, false);
                     showCharacterDetails(best);
                 }
+                        // update nav buttons state after scroll selection
+                        if (typeof updateNavButtons === 'function') updateNavButtons();
             }
         }, 120);
     });
 }
 
+// enable/disable prev/next based on which cell is centered
+function updateNavButtons() {
+    if (!track) return;
+    const cells = Array.from(track.querySelectorAll('.carousel-cell'));
+    if (cells.length === 0) return;
+    const trackRect = track.getBoundingClientRect();
+    const trackCenter = (trackRect.left + trackRect.right) / 2;
+    let bestIdx = -1;
+    let bestDist = Infinity;
+    cells.forEach((c, i) => {
+        const r = c.getBoundingClientRect();
+        const cCenter = (r.left + r.right) / 2;
+        const dist = Math.abs(cCenter - trackCenter);
+        if (dist < bestDist) { bestDist = dist; bestIdx = i; }
+    });
+
+    // when the first cell is centered, disable prev; when last is centered, disable next
+    if (prevBtn) {
+        if (bestIdx <= 0) { prevBtn.classList.add('disabled'); prevBtn.setAttribute('aria-disabled', 'true'); prevBtn.disabled = true; }
+        else { prevBtn.classList.remove('disabled'); prevBtn.removeAttribute('aria-disabled'); prevBtn.disabled = false; }
+    }
+    if (nextBtn) {
+        if (bestIdx >= cells.length - 1) { nextBtn.classList.add('disabled'); nextBtn.setAttribute('aria-disabled', 'true'); nextBtn.disabled = true; }
+        else { nextBtn.classList.remove('disabled'); nextBtn.removeAttribute('aria-disabled'); nextBtn.disabled = false; }
+    }
+}
+
+// initialize nav button state
+setTimeout(updateNavButtons, 120);
+
 if (confirmCharBtn) {
-    confirmCharBtn.addEventListener('click', () => { window.location.href = 'config.html'; });
+    confirmCharBtn.addEventListener('click', () => { window.location.href = 'elige_mapa.html'; });
 }
 
 if (backToCars) {

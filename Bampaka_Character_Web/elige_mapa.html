@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Selección de mapas</title>
+</head>
+<body>
+    <main class="car-gallery-wrap">
+        <header class="car-gallery-header">
+            <h1>Elige el mapa</h1>
+            <p>Haz click en una carta para seleccionar el mapa.</p>
+        </header>
+
+        <section class="map-selection">
+            <div class="map-grid" id="mapGrid">
+                <!-- Repeated images (daikoku) - visually treated as distinct choices -->
+                <div class="map-card" data-id="daikoku-1">
+                    <img src="img/DAIKOKU_MAP.PNG" alt="Daikoku 1">
+                    <div class="map-label">Daikoku - Variante A</div>
+                    <div class="sparkles"></div>
+                </div>
+                <div class="map-card" data-id="daikoku-2">
+                    <img src="img/DAIKOKU_MAP.PNG" alt="Daikoku 2">
+                    <div class="map-label">Daikoku - Variante B</div>
+                    <div class="sparkles"></div>
+                </div>
+                <div class="map-card" data-id="daikoku-3">
+                    <img src="img/DAIKOKU_MAP.PNG" alt="Daikoku 3">
+                    <div class="map-label">Daikoku - Variante C</div>
+                    <div class="sparkles"></div>
+                </div>
+                <div class="map-card" data-id="daikoku-4">
+                    <img src="img/DAIKOKU_MAP.PNG" alt="Daikoku 4">
+                    <div class="map-label">Daikoku - Variante D</div>
+                    <div class="sparkles"></div>
+                </div>
+                <div class="map-card" data-id="daikoku-5">
+                    <img src="img/DAIKOKU_MAP.PNG" alt="Daikoku 5">
+                    <div class="map-label">Daikoku - Variante E</div>
+                    <div class="sparkles"></div>
+                </div>
+                <div class="map-card" data-id="daikoku-6">
+                    <img src="img/DAIKOKU_MAP.PNG" alt="Daikoku 6">
+                    <div class="map-label">Daikoku - Variante F</div>
+                    <div class="sparkles"></div>
+                </div>
+            </div>
+
+            <div id="mapDetails" class="char-details hidden" aria-live="polite">
+                <div class="char-card">
+                    <div class="char-thumb"><img id="mapThumb" src="" alt=""></div>
+                    <div class="char-body">
+                        <h2 id="mapName"></h2>
+                        <p id="mapDesc"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-actions" style="margin-top:20px;">
+                <button id="confirmMapBtn" class="confirm-btn" disabled>Continuar</button>
+                <button id="backToChars" class="confirm-btn" style="background:#be1b74;color:#fff">Volver</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal warning shown when user confirms map selection -->
+    <div id="startWarningModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <h3 id="modalTitle">Aviso</h3>
+            <p>Aquí empezaría el juego</p>
+            <div style="display:flex; gap:12px; justify-content:center; margin-top:12px;">
+                <button id="modalStart" class="confirm-btn">Empezar</button>
+                <button id="modalCancel" class="confirm-btn" style="background:#be1b74;color:#fff">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="elige_mapa.js"></script>
+</body>
+</html>
