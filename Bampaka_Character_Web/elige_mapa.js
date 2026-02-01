@@ -16,8 +16,8 @@ function updateConfirmState() {
 function showMapDetails(card) {
     if (!card) return;
     const id = card.dataset.id || '';
-    const name = card.querySelector('.map-label')?.textContent || 'Mapa';
-    const desc = `Descripción del ${name}. Pistas estrechas, curvas cerradas y atajos secretos.`;
+    const name = card.dataset.name || card.querySelector('.map-label')?.textContent || 'Mapa';
+    const desc = card.dataset.desc || `Descripción del ${name}. Pistas estrechas, curvas cerradas y atajos secretos.`;
     if (mapThumb) {
         const img = card.querySelector('img');
         mapThumb.src = img ? img.src : '';
