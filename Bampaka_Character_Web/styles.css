@@ -269,6 +269,66 @@ input[type="range"].slider::-moz-range-thumb { width: 22px; height: 22px; border
 
 .config-container { max-width: 720px; margin: 6vh auto; padding: 36px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
 .config-container h1 { text-align: center; margin-bottom: 24px; }
+.config-section-header {
+    font-size: 1.05rem;
+    margin: 12px 0 8px 0;
+    color: #ffd1f0;
+    font-weight: 700;
+    opacity: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+.option-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(90deg,#111,#0a0a0a);
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.04);
+    margin-top: 6px;
+}
+.option-selector .opt-btn {
+    background: transparent;
+    border: none;
+    color: #e6ffff;
+    font-size: 1.2rem;
+    padding: 0;
+    width: 40px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.12s, transform 0.12s;
+}
+.option-selector .opt-btn:hover { background: rgba(255,255,255,0.02); transform: translateY(-2px); }
+.option-selector .opt-value {
+    min-width: 140px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    color: #ffd1f0;
+}
+.graphics-multi {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.graphics-item { display:flex; flex-direction:column; align-items:center; gap:6px; min-width: 120px; }
+.opt-label { font-size: 0.72rem; color: #ffd1f0; opacity: 0.85; text-transform: uppercase; letter-spacing:0.6px; }
+
+@media (max-width: 520px) {
+    .graphics-multi { gap: 8px; }
+    .graphics-item { min-width: 100px; }
+}
+
 .slider-container { margin: 18px 0; }
 .slider-container label { display:block; margin-bottom:8px; opacity:0.9 }
 .config-container button { margin-top: 18px; padding: 12px 18px; border-radius: 10px; border: none; background: #00f5ff; color: #000; cursor: pointer; }
