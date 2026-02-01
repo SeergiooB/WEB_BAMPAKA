@@ -10,71 +10,142 @@
     <div class="config-container">
         <h1>Configuración del Juego</h1>
 
-        <h3 class="config-section-header">Sonidos</h3>
-        <div class="slider-container">
-            <label for="volume-general">Volumen General:</label>
-            <input type="range" id="volume-general" name="volume-general" min="0" max="100" value="50" class="slider">
-        </div>
-        <div class="slider-container">
-            <label for="volume-effects">Volumen de Efectos:</label>
-            <input type="range" id="volume-effects" name="volume-effects" min="0" max="100" value="50" class="slider">
-        </div>
-        <div class="slider-container">
-            <label for="volume-chat">Volumen de Chat:</label>
-            <input type="range" id="volume-chat" name="volume-chat" min="0" max="100" value="50" class="slider">
+        <div class="tab-bar" role="tablist" aria-label="Configuración">
+            <button class="tab-btn active" data-tab="sonidos" role="tab" aria-selected="true" aria-controls="tab-sonidos" id="tab-btn-sonidos">Sonidos</button>
+            <button class="tab-btn" data-tab="graficos" role="tab" aria-selected="false" aria-controls="tab-graficos" id="tab-btn-graficos">Gráficos</button>
+            <button class="tab-btn" data-tab="controles" role="tab" aria-selected="false" aria-controls="tab-controles" id="tab-btn-controles">Controles</button>
         </div>
 
-        <h3 class="config-section-header">Gráficos</h3>
-        <div class="slider-container">
-            <div class="graphics-multi">
-                <div class="graphics-item">
-                    <small class="opt-label">Calidad</small>
-                    <div class="option-selector graphics-selector" role="group" aria-label="Calidad">
-                        <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
-                        <div class="opt-value" tabindex="0">Medio</div>
-                        <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+        <div id="tab-sonidos" class="tab-content active" role="tabpanel" aria-labelledby="tab-btn-sonidos">
+            <h3 class="config-section-header">Sonidos</h3>
+            <div class="slider-container">
+                <label for="volume-general">Volumen General:</label>
+                <input type="range" id="volume-general" name="volume-general" min="0" max="100" value="50" class="slider">
+            </div>
+            <div class="slider-container">
+                <label for="volume-effects">Volumen de Efectos:</label>
+                <input type="range" id="volume-effects" name="volume-effects" min="0" max="100" value="50" class="slider">
+            </div>
+            <div class="slider-container">
+                <label for="volume-chat">Volumen de Chat:</label>
+                <input type="range" id="volume-chat" name="volume-chat" min="0" max="100" value="50" class="slider">
+            </div>
+        </div>
+
+        <div id="tab-graficos" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-graficos" hidden>
+            <h3 class="config-section-header">Gráficos</h3>
+            <div class="slider-container">
+                <div class="graphics-multi">
+                    <div class="graphics-item">
+                        <small class="opt-label">Calidad</small>
+                        <div class="option-selector graphics-selector" role="group" aria-label="Calidad">
+                            <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
+                            <div class="opt-value" tabindex="0">Medio</div>
+                            <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                        </div>
+                        <input type="hidden" id="graphics-calidad" name="graphics-calidad" value="medium">
                     </div>
-                    <input type="hidden" id="graphics-calidad" name="graphics-calidad" value="medium">
-                </div>
-                <div class="graphics-item">
-                    <small class="opt-label">Sombras</small>
-                    <div class="option-selector graphics-selector" role="group" aria-label="Sombras">
-                        <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
-                        <div class="opt-value" tabindex="0">Medio</div>
-                        <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                    <div class="graphics-item">
+                        <small class="opt-label">Sombras</small>
+                        <div class="option-selector graphics-selector" role="group" aria-label="Sombras">
+                            <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
+                            <div class="opt-value" tabindex="0">Medio</div>
+                            <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                        </div>
+                        <input type="hidden" id="graphics-sombras" name="graphics-sombras" value="medium">
                     </div>
-                    <input type="hidden" id="graphics-sombras" name="graphics-sombras" value="medium">
-                </div>
-                <div class="graphics-item">
-                    <small class="opt-label">Texturas</small>
-                    <div class="option-selector graphics-selector" role="group" aria-label="Texturas">
-                        <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
-                        <div class="opt-value" tabindex="0">Medio</div>
-                        <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                    <div class="graphics-item">
+                        <small class="opt-label">Texturas</small>
+                        <div class="option-selector graphics-selector" role="group" aria-label="Texturas">
+                            <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
+                            <div class="opt-value" tabindex="0">Medio</div>
+                            <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                        </div>
+                        <input type="hidden" id="graphics-texturas" name="graphics-texturas" value="medium">
                     </div>
-                    <input type="hidden" id="graphics-texturas" name="graphics-texturas" value="medium">
-                </div>
-                <div class="graphics-item">
-                    <small class="opt-label">Efectos</small>
-                    <div class="option-selector graphics-selector" role="group" aria-label="Efectos">
-                        <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
-                        <div class="opt-value" tabindex="0">Medio</div>
-                        <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                    <div class="graphics-item">
+                        <small class="opt-label">Efectos</small>
+                        <div class="option-selector graphics-selector" role="group" aria-label="Efectos">
+                            <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
+                            <div class="opt-value" tabindex="0">Medio</div>
+                            <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                        </div>
+                        <input type="hidden" id="graphics-efectos" name="graphics-efectos" value="medium">
                     </div>
-                    <input type="hidden" id="graphics-efectos" name="graphics-efectos" value="medium">
-                </div>
-                <div class="graphics-item">
-                    <small class="opt-label">Antialias</small>
-                    <div class="option-selector graphics-selector" role="group" aria-label="Antialias">
-                        <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
-                        <div class="opt-value" tabindex="0">Medio</div>
-                        <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                    <div class="graphics-item">
+                        <small class="opt-label">Antialiasing
+                        </small>
+                        <div class="option-selector graphics-selector" role="group" aria-label="Antialias">
+                            <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
+                            <div class="opt-value" tabindex="0">Medio</div>
+                            <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                        </div>
+                        <input type="hidden" id="graphics-aa" name="graphics-aa" value="medium">
                     </div>
-                    <input type="hidden" id="graphics-aa" name="graphics-aa" value="medium">
+                    <div class="graphics-item">
+                        <small class="opt-label">Posprocesado</small>
+                        <div class="option-selector graphics-selector" role="group" aria-label="Posprocesado">
+                            <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
+                            <div class="opt-value" tabindex="0">Medio</div>
+                            <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                        </div>
+                        <input type="hidden" id="graphics-posprocesado" name="graphics-posprocesado" value="medium">
+                    </div>
+                    <div class="graphics-item">
+                        <small class="opt-label">Reflejos</small>
+                        <div class="option-selector graphics-selector" role="group" aria-label="Reflejos">
+                            <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
+                            <div class="opt-value" tabindex="0">Medio</div>
+                            <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                        </div>
+                        <input type="hidden" id="graphics-reflejos" name="graphics-reflejos" value="medium">
+                    </div>
+                    <div class="graphics-item">
+                        <small class="opt-label">Vegetación</small>
+                        <div class="option-selector graphics-selector" role="group" aria-label="Vegetacion">
+                            <button type="button" class="opt-btn left" aria-label="Anterior">‹</button>
+                            <div class="opt-value" tabindex="0">Medio</div>
+                            <button type="button" class="opt-btn right" aria-label="Siguiente">›</button>
+                        </div>
+                        <input type="hidden" id="graphics-vegetacion" name="graphics-vegetacion" value="medium">
+                    </div>
                 </div>
             </div>
         </div>
 
+        <div id="tab-controles" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-controles" hidden>
+            <h3 class="config-section-header">Controles</h3>
+            <div class="controls-list">
+                <div class="control-item" data-action="acelerar">
+                    <div class="control-name">Acelerar</div>
+                    <button type="button" class="key-btn" data-action="acelerar" aria-label="Reasignar tecla Acelerar">W</button>
+                </div>
+                <div class="control-item" data-action="frenar">
+                    <div class="control-name">Frenar</div>
+                    <button type="button" class="key-btn" data-action="frenar" aria-label="Reasignar tecla Frenar">S</button>
+                </div>
+                <div class="control-item" data-action="girar_izq">
+                    <div class="control-name">Girar izquierda</div>
+                    <button type="button" class="key-btn" data-action="girar_izq" aria-label="Reasignar tecla Girar izquierda">A</button>
+                </div>
+                <div class="control-item" data-action="girar_der">
+                    <div class="control-name">Girar derecha</div>
+                    <button type="button" class="key-btn" data-action="girar_der" aria-label="Reasignar tecla Girar derecha">D</button>
+                </div>
+                <div class="control-item" data-action="nitro">
+                    <div class="control-name">Nitro</div>
+                    <button type="button" class="key-btn" data-action="nitro" aria-label="Reasignar tecla Nitro">Space</button>
+                </div>
+                <div class="control-item" data-action="bocina">
+                    <div class="control-name">Bocina</div>
+                    <button type="button" class="key-btn" data-action="bocina" aria-label="Reasignar tecla Bocina">H</button>
+                </div>
+            </div>
+            <div class="slider-container">
+                <small class="opt-label">Restablecer controles</small>
+                <button id="reset-controls" class="config-link-button">Restablecer valores por defecto</button>
+            </div>
+        </div>
 
         
         <div class="car-actions" style="margin-top:12px; display:flex; gap:12px; justify-content:center;">
